@@ -106,6 +106,6 @@ app.post("/apps/passport-upload", upload.single("file"), async (req, res) => {
 
 // Server Start
 app.listen(process.env.PORT || 3000, () =>
-  console.log("✅ Appssssssssssss Running on Port:", process.env.PORT || 3000)
+  console.log("✅ Appssssssss Running on Port:", process.env.PORT || 3000)
 );
 
