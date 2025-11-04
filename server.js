@@ -14,10 +14,6 @@ const upload = multer({ storage });
 app.use(express.json());
 app.use(cors());
 
-const SHOP = process.env.SHOP_DOMAIN;
-const TOKEN = process.env.ADMIN_API_TOKEN;
-const API_VERSION = process.env.SHOPIFY_API_VERSION;
-
 // ✅ Upload API
 app.post("/apps/passport-upload", upload.single("file"), async (req, res) => {
   console.log("📩 Request Received, File:", req.file); // Debug log
@@ -68,7 +64,8 @@ app.post("/apps/passport-upload", upload.single("file"), async (req, res) => {
       return res.json({ warning: "✅ File uploaded but no order found" });
     }
 
-    // 3️⃣ Attach File to the Order Metafield
+
+    
     const metafieldResp = await fetch(
       `https://${SHOP}/admin/api/${API_VERSION}/orders/${latestOrder.id}/metafields.json`,
       {
@@ -106,6 +103,6 @@ app.post("/apps/passport-upload", upload.single("file"), async (req, res) => {
 
 // Server Start
 app.listen(process.env.PORT || 3000, () =>
-  console.log("✅ Appssssssss Running on Port:", process.env.PORT || 3000)
+  console.log("Apprererererwerewrwe Running on Port:", process.env.PORT || 3000)
 );
 
